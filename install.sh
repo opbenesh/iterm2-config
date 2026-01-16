@@ -20,30 +20,11 @@ $(brew --prefix)/opt/fzf/install --all
 # Backup existing .zshrc
 cp ~/.zshrc ~/.zshrc.bak
 
-cat << 'EOF' > ~/.zshrc
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Copy custom zsh config
+cp zshrc.custom ~/.zshrc.custom
 
-# Use Dracula theme (ensure you followed the previous step to link it)
-ZSH_THEME="dracula"
-
-# --- Plugin Config ---
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
-
-source $ZSH/oh-my-zsh.sh
-
-# Initialize Tools
-eval $(thefuck --alias fix)
-eval "$(fnm env --use-on-cd)"
-
-# --- Aliases ---
-alias cat="bat"
-alias gs="git status"
-alias ga="git add ."
-alias gc="git commit -m"
-alias c="code ."
-alias ..="cd .."
-EOF
+# Add sourcing to .zshrc
+echo "\n# Source custom zsh config\nif [ -f ~/.zshrc.custom ]; then\n    source ~/.zshrc.custom\nfi" >> ~/.zshrc
 
 source ~/.zshrc
 echo "Ultimate Setup Complete! Please restart iTerm2 to apply changes."
