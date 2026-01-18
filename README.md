@@ -33,8 +33,8 @@ macOS + [Homebrew](https://brew.sh/)
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/iterm2-config.git
-cd iterm2-config
+git clone https://github.com/opbenesh/iterm2-setup.git
+cd iterm2-setup
 ```
 
 2. Run the installation script:
